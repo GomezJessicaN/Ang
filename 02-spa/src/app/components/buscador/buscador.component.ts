@@ -9,7 +9,7 @@ import { HeroesService } from '../../service/heroes.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  heroes: any[] = [ ]
+  heroes: any[] = []
   termino: string;
   constructor(private activatedRoute: ActivatedRoute,
               private _heroesService: HeroesService) {
