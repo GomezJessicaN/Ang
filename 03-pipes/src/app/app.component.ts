@@ -26,4 +26,9 @@ export class AppComponent {
   });
 
   fecha = new Date();
+
+  video = '8dA_ZTSTngg';
+
+activar = true;
 }
+
