@@ -12,10 +12,10 @@ export class SpotifyService {
     console.log('Spotify sevice listo');
    }
 
-getQuery (query: string){
+getQuery (query: string) {
 const url = `https://api.spotify.com/v1/${ query }`;
 const headers = new HttpHeaders({
-  'Authorization': 'Bearer BQA-ZAUaN6Ddvwt9g5ZnxKmUnwv39gBDjkxLVrEsG7bk8Qk8ap5RtJGPaUxKzP3AlX-VZpdoDhCYZGt0JSk'
+  'Authorization': 'Bearer BQBMM6QxKyG2t2ICcTzkMjbJpUlIrF3xl-8PzhsmgzcxIsKTRqdg-PGu_1hMQcv74P6OPoU-Y6raIACCoCA'
 });
 return this.http.get(url, { headers });
 }
