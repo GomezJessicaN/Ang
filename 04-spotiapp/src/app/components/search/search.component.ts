@@ -15,7 +15,7 @@ loading: boolean;
  console.log(termino);
 
  this.loading = true;
- this.spotify.getArtista( termino )
+ this.spotify.getArtistas( termino )
  .subscribe((data: any) => {
    this.artistas = data;
    this.loading = false;
