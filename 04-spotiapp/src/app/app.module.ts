@@ -12,14 +12,14 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 // Importar rutas
 import { ROUTES } from './app.routes';
 
-// service
-import { SpotifyService } from './services/spotify.service';
 
 // pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
-import { DomseguroPipe } from './pipes/domseguro.pipe';
+
 
 
 @NgModule({
@@ -40,7 +40,6 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
     RouterModule.forRoot( ROUTES, {useHash: true} )
   ],
   providers: [
-    SpotifyService
   ],
   bootstrap: [AppComponent]
 })
