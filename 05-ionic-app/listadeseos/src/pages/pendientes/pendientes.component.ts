@@ -19,7 +19,7 @@ export class PendientesPage {
   }
 
   agregarLista() {
-    //  this.navCtrl.push(AgregarPage);
+  
 
     const alerta = this.alertCtrl.create({
       title: "Nueva lista",
@@ -34,7 +34,12 @@ export class PendientesPage {
         },{
       text: 'Agregar',
       handler: data => {
-       console.log(data);
+        if(data.titulo.length === 0){
+          return;
+        }
+        this.navCtrl.push(AgregarPage, {
+          titulo: data.titulo
+        });
       }
     }]
     });
