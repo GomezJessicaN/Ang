@@ -16,7 +16,9 @@ export class AgregarPage {
     private navParams: NavParams ){
 
       const titulo =  this.navParams.get('titulo');
-        this.lista = new Lista( titulo )
+        this.lista = new Lista( titulo );
+
+        this.deseosService.agregarLista(this.lista);
  }
  agregarItem(){
      if(this.nombreItem.length === 0){
@@ -30,6 +32,9 @@ export class AgregarPage {
  }
  actualizarTarea(item: ListaItem){
     item.completado = !item.completado;
+ }
+ borrar(idx: number){
+     this.lista.items.splice(idx, 1);
  }
 
  }
