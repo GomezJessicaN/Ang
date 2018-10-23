@@ -15,6 +15,7 @@ import { TerminadosPage } from '../pages/terminados/terminados.component';
 
 //servicios
 import { DeseosService } from '../services/deseos.service';
+import { AgregarPage } from '../pages/agregar/agregar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DeseosService } from '../services/deseos.service';
     HomePage,
     TabsPage,
     PendientesPage,
-    TerminadosPage
+    TerminadosPage,
+    AgregarPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { DeseosService } from '../services/deseos.service';
     HomePage,
     TabsPage,
     PendientesPage,
-    TerminadosPage
+    TerminadosPage,
+    AgregarPage
   ],
   providers: [
     StatusBar,
