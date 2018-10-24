@@ -14,12 +14,9 @@ export class PendientesPage {
     private navCtrl: NavController,
     private alertCtrl: AlertController
   ) {}
-  listaSeleccionada(lista: Lista) {
-    console.log(lista);
-  }
+
 
   agregarLista() {
-  
 
     const alerta = this.alertCtrl.create({
       title: "Nueva lista",
