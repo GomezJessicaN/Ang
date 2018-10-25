@@ -3,7 +3,6 @@ import { DeseosService } from "../../services/deseos.service";
 import { Lista } from "../../models";
 import { NavController, AlertController } from "ionic-angular";
 import { AgregarPage } from "../agregar/agregar.component";
-import { Lista } from '../../models/lista.model';
 
 @Component({
   selector: "page-pendientes",
@@ -16,9 +15,7 @@ export class PendientesPage {
     private alertCtrl: AlertController
   ) {}
 
-borrarLista(lista:Lista){
-  this.deseosService.borrarLista( lista )
-}
+
   agregarLista() {
 
     const alerta = this.alertCtrl.create({
