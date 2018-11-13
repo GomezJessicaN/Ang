@@ -14,10 +14,10 @@ export class NavbarComponent {
   }
 
 
-  ingresar(){
+  login(){
     this.auth.login();
   }
-  salir(){
+  logout(){
     this.auth.logout();
   }
 
