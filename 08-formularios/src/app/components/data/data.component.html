@@ -31,8 +31,33 @@
         </div>
     </div>
 
+
     <div class="form-group row">
-        <label class="col-2 col-form-label">Correo</label>
+        <label class="col-2 col-form-label">Username</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="text" placeholder="Usuario" formControlName="Username">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repetir password</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="password" placeholder="Repetir password" formControlName="password2">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Pasatiempos</label>
         <div class="col-md-8" formArrayName="pasatiempos">
             <input *ngFor="let pasatiempo of forma.controls['pasatiempos'].controls; let i = index" [formControlName]="i" type="text" class="form-control">
         </div>

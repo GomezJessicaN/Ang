@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms'
+import { Observable } from 'rxjs/Rx'
 
 @Component({
   selector: 'app-data',
@@ -31,8 +32,16 @@ this.forma = new FormGroup({
   'correo': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
   'pasatiempos':new FormArray([
     new FormControl('Correr', Validators.required)
-  ])
+  ]),
+  'username': new FormControl('', Validators.required),
+  'password1': new FormControl('', Validators.required),
+  'password2': new FormControl()
 });
+
+this.forma.controls['password2'].setValidators([
+  Validators.required,
+  this.noIgual.bind(this.forma)
+])
  //this.forma.setValue( this.usuario);
   }
 agregarPasatiempo(){
@@ -50,6 +59,23 @@ if(control.value === "herrera"){
 return null;
 }
 
+noIgual( control: FormControl): {[s:string]:boolean}{
+
+  console.log(this);
+  let forma:any = this;
+
+  if(control.value === forma.controls['password1'].value){
+    return{
+      noiguales:true
+    }
+  }
+  return null;
+  }
+
+  existeUsuario( control: FormControl ): Promise<any> Observable<any>{
+
+  }
+
 guardarCambios() {
   console.log(this.forma.value);
   console.log(this.forma);
@@ -62,4 +88,6 @@ guardarCambios() {
   // });
 
 
+});
+}
 }
