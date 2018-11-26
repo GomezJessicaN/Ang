@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms'
-import { Observable } from 'rxjs/Rx'
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-data',
@@ -33,7 +34,7 @@ this.forma = new FormGroup({
   'pasatiempos':new FormArray([
     new FormControl('Correr', Validators.required)
   ]),
-  'username': new FormControl('', Validators.required),
+  'username': new FormControl('', Validators.required, this.existeUsuario),
   'password1': new FormControl('', Validators.required),
   'password2': new FormControl()
 });
@@ -43,6 +44,10 @@ this.forma.controls['password2'].setValidators([
   this.noIgual.bind(this.forma)
 ])
  //this.forma.setValue( this.usuario);
+
+ this.forma.controls['username'].statusChanges.subscribe(data =>{
+   console.log(data)
+ })
   }
 agregarPasatiempo(){
   (<FormArray>this.forma.controls['pasatiempos']).push(
@@ -72,8 +77,19 @@ noIgual( control: FormControl): {[s:string]:boolean}{
   return null;
   }
 
-  existeUsuario( control: FormControl ): Promise<any> Observable<any>{
-
+  existeUsuario( control: FormControl ): Promise<any> | Observable<any>{
+ let promesa = new Promise (
+ (resolve, reject) => {
+setTimeout(() =>{
+  if (control.value==="strider" ){
+    resolve({existe:true})
+} else{
+  resolve (null)
+}
+}, 3000)
+ }
+ )
+ return promesa;
   }
 
 guardarCambios() {
