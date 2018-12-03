@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroes/heroe.component';
+import { HeroesService } from './services/heroes.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HeroeComponent } from './components/heroes/heroe.component';
     HttpModule
 
   ],
-  providers: [],
+  providers: [ HeroesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
