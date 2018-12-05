@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HeroesService {
   heroesURL: string = "https://heroesapp-62b42.firebaseio.com/heroes.json";
-
+  heroeURL: string = "https://heroesapp-62b42.firebaseio.com/heroes/ "
   constructor( private http: Http ) {}
 
   nuevoHeroe(heroe: Heroe) {
@@ -18,4 +18,12 @@ export class HeroesService {
     });
     return this.http.post(this.heroesURL, body, { headers: headers })
   }
-}
+
+ ActualizarHeroe( heroe: Heroe, key$:string ) {
+    let body = JSON.stringify(heroe);
+    let headers = new Headers({
+      "Content-Type": "application/json"
+    });
+    let url=  `${ this.heroeURL }/${ key$}.json`; 
+    return this.http.put(url, body, { headers })
+  } }
