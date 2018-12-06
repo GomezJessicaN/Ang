@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'; 
+import { NgForm } from '@angular/forms';
 import { Heroe } from '../../interfaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { getInheritedFactory } from '@angular/core/src/render3';
 
 
 
@@ -25,6 +26,10 @@ id:string;
     private router:Router, private route:ActivatedRoute ) {
       this.route.params.subscribe( parametros =>{
         this.id = parametros ['id'];
+        if (this.id !== "nuevo"){
+          this._heroesService.getHeroe( this.id ).subscribe( heroe =>
+            this.heroe = heroe )
+        }
       })
     }
 
@@ -48,7 +53,13 @@ id:string;
     },
     error=>console.error(error));
       }
-   
-  }
 
+}
+
+agregarNuevo(form: NgForm){
+  this.router.navigate(['/heroe', 'nuevo']);
+  form.reset({
+    casa:"Marvel"
+  });
+}
 }

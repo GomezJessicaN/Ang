@@ -26,4 +26,14 @@ export class HeroesService {
     });
     let url=  `${ this.heroeURL }/${ key$}.json`; 
     return this.http.put(url, body, { headers })
-  } }
+  }
+
+getHeroe (key$:string ){
+  let url = `${ this.heroeURL }/${ key$ }.json`;
+  return this.http.get( url )
+}
+
+getHeroes(){
+  return this.http.get ( this.heroesURL )
+}
+}
