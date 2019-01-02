@@ -8,11 +8,23 @@
 <hr>
 
 <div class="app-mensajes" id="app-mensajes">
-    <div>
-        <span> Fernando </span>
+    <div class="text-right">
+        <span class="badge badge-primary"> Blenki </span>
         <p>
             Este es un mensaje
         </p>
 
     </div>
+
+    <div>
+        <span class="badge badge-success"> Marta </span>
+        <p>
+            ¿Qué onda uacho?
+        </p>
+
+    </div>
+
+
 </div>
+
+<input type="text" name="mensaje" [(ngModel)]="mensaje" class="form-control" (keyup.enter)="enviar_mensaje()" placeholder="Enviar Mensaje">
